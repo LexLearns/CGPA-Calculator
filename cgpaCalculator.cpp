@@ -8,6 +8,11 @@ cgpaCalculator::cgpaCalculator(std::string name, double percentage) {
 	this->percentage = percentage;
 }
 
+void cgpaCalculator::setDetail(std::string name = "no Name", double percentage = 0){
+	this->name = name;
+	this->percentage = percentage;
+}
+
 void cgpaCalculator::getDetail() {
 	std::cout<<std::setprecision(3);
 	std::cout<<"Name: "<<name<<std::endl;
