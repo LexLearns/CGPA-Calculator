@@ -1,9 +1,11 @@
 #include <iostream>
 #include "cgpaCalculator.h"
 #include <string>
+#include <vector>
 
 int main() {
 	cgpaCalculator student;
+	std::vector<cgpaCalculator> studentList;
 	std::string name;
 	double percentage;
 	std::cout<<"******************************************"<<std::endl;
@@ -19,14 +21,23 @@ int main() {
 				std::cout<<std::endl;
 				std::cout<<"Enter name: ";
 				std::cin>>name;
+				std::cin.ignore(255, '\n'); // This flushes the buffer
 				std::cout<<"Enter percentage: ";
 				std::cin>>percentage;
+				std::cin.clear(); // This cleans the buffer if a character is entered in place of an int
+				std::cin.ignore(100, '\n'); // Flushes the buffer
 				student.setDetail(name, percentage);
-				student.getCgpa();
+				studentList.push_back(student);
 				break;
 			case 2:
-				std::cout<<std::endl;
-				student.getDetail();
+				if(!studentList.size()){
+					std::cout<<"\nNo data avaiable. Please enter student data\n";
+				}
+				else {
+					for(int i = 0; i < studentList.size(); ++i){
+						studentList.at(i).getDetail();
+					}
+				}
 				break;
 			case 3:
 				choice = 0;

@@ -14,6 +14,7 @@ void cgpaCalculator::setDetail(std::string name = "no Name", double percentage =
 }
 
 void cgpaCalculator::getDetail() {
+	getCgpa();
 	std::cout<<std::setprecision(3);
 	std::cout<<"Name: "<<name<<std::endl;
 	std::cout<<"Percentage: "<<percentage<<std::endl;
